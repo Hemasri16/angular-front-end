@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Exam List</h2>
+  </div>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    
+      <a class="nav-item nav-link" routerLink="/exam">Exam List</a>
+      <a class="nav-item nav-link" routerLink="/add-exam">Add Exam</a>
+  </div>
+</nav>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Exam ID</th>
+            <th>Exam Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exam of exams| async">
+             <td>{{exam.id}}</td>
+            <td>{{exam.name}}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

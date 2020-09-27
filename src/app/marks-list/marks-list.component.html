@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Marks List</h2>
+  </div>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <div class="form-group">
+      <label>Exam Name</label>
+      <select formControlName="exam_name"  class="form-control">
+          <option value="">Please select a Exam Name</option>
+          <option *ngFor="let exam_name of exam_names"[value]="exam_name">
+              {{ exam_name }}
+          </option>
+  
+      </select>
+    </div>
+      <a class="nav-item nav-link" routerLink="/marks">Marks List</a>
+      <a class="nav-item nav-link" routerLink="/add-marks">Add Marks</a>
+  </div>
+</nav> 
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Sub1</th>
+            <th>Sub2</th>
+            <th>Sub3</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let marks of marks | async">
+            <td>{{marks.studid}}</td>
+            <td>{{marks.stud_name}}</td>
+            <td>{{marks.sub1}}</td>
+            <td>{{marks.sub2}}</td>
+            <td>{{marks.sub3}}</td>
+            <td><button (click)="deleteMarks(marks.studid)" class="btn btn-danger">Delete</button>
+                 <button (click)="updateMarks(marks.studid)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
